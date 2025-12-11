@@ -1,0 +1,98 @@
+/* Space Style for Waybar */
+* {
+    font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free";
+    font-size: 13px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: rgba(30, 30, 46, 0.5);   /* más transparente */
+    border: 1px solid #89b4fa;
+    border-radius: 8px;
+    box-shadow: 0 8px 32px rgba(0, 0,0,0.8);
+}
+/*
+window#waybar {
+    background: rgba(30, 30, 46, 0.7);
+    border-radius: 16px;
+    border: 1px solid #89b4fa;
+    color: #cdd6f4;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+}
+*/
+#custom-launcher {
+    background: linear-gradient(135deg, #89b4fa, #b4befe);
+    color: #1e1e2e;
+    padding: 0 16px;
+    margin: 4px 0;
+    border-radius: 12px 0 0 12px;
+    font-size: 16px;
+}
+
+#workspaces button {
+    padding: 0 12px;
+    color: #89b4fa;
+    background: transparent;
+}
+
+#workspaces button.active {
+    background: linear-gradient(90deg, #89b4fa, #cba6f7);
+    color: #1e1e2e;
+    border-radius: 10px;
+}
+
+#workspaces button:hover {
+    background: rgba(137, 180, 250, 0.3);
+}
+
+#clock {
+    background: linear-gradient(90deg, #1e1e2e, #313244);
+    color: #cba6f7;
+    padding: 0 20px;
+    border-radius: 12px;
+    border: 1px solid #cba6f7;
+}
+
+#cpu, #memory, #temperature, #pulseaudio, #network, #battery {
+    background: rgba(49, 50, 68, 0.8);
+    color: #cdd6f4;
+    padding: 0 12px;
+    margin: 4px 2px;
+    border-radius: 10px;
+}
+
+#cpu.warning, #memory.warning, #temperature.warning { color: #f9e2af; }
+#cpu.critical, #memory.critical, #temperature.critical { 
+    background: #f38ba8;
+    color: #1e1e2e;
+    animation: blink 1s infinite alternate;
+}
+
+#pulseaudio.muted { color: #f38ba8; }
+
+#battery.charging { color: #94e2d5; }
+#battery.critical:not(.charging) { 
+    background: #f38ba8;
+    color: #1e1e2e;
+}
+
+#custom-power {
+    background: linear-gradient(135deg, #f38ba8, #eba0ac);
+    color: #1e1e2e;
+    padding: 0 16px;
+    margin: 4px 0 4px 4px;
+    border-radius: 0 12px 12px 0;
+}
+
+tooltip {
+    background: #1e1e2e;
+    border: 1px solid #89b4fa;
+    border-radius: 12px;
+}
+
+@keyframes blink {
+    to { background: #f38ba8; }
+}
