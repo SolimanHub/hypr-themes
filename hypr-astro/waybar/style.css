@@ -1,98 +1,178 @@
 /* Space Style for Waybar */
+/* ===================================================== */
+/*  WAYBAR – ESTILO ASTRONAUT / ESTACIÓN ESPACIAL 2089   */
+/*  Perfect match con sddm-astronaut-theme               */
+/* ===================================================== */
+
 * {
+    border: none;
+    border-radius: 0;
     font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free";
     font-size: 13px;
     font-weight: bold;
-    border: none;
-    border-radius: 6px;
     min-height: 0;
+    padding: 0;
+    margin: 0;
 }
 
 window#waybar {
-    background: rgba(30, 30, 46, 0.5);   /* más transparente */
-    border: 1px solid #89b4fa;
-    border-radius: 8px;
-    box-shadow: 0 8px 32px rgba(0, 0,0,0.8);
-}
-/*
-window#waybar {
-    background: rgba(30, 30, 46, 0.7);
-    border-radius: 16px;
-    border: 1px solid #89b4fa;
+    background: rgba(10, 12, 28, 0.85);
     color: #cdd6f4;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+    border-bottom: 2px solid #89b4fa;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8);
 }
-*/
+
+/* Launcher – Launcher (logo Arch) */
 #custom-launcher {
-    background: linear-gradient(135deg, #89b4fa, #b4befe);
-    color: #1e1e2e;
+    font-size: 18px;
+    color: #000000;
+    background: linear-gradient(135deg, #89b4fa, #00ddff);
     padding: 0 16px;
-    margin: 4px 0;
-    border-radius: 12px 0 0 12px;
-    font-size: 16px;
+    margin: 4px 8px 4px 8px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(137, 180, 250, 0.6);
+}
+
+#custom-launcher:hover {
+    background: linear-gradient(135deg, #00ddff, #89b4fa);
+}
+
+/* – Workspaces */
+#workspaces {
+    margin: 4px 4px;
+    padding: 0 4px;
+    background: rgba(30, 30, 46, 0.6);
+    border-radius: 12px;
 }
 
 #workspaces button {
-    padding: 0 12px;
+    padding: 0 10px;
     color: #89b4fa;
-    background: transparent;
-}
-
-#workspaces button.active {
-    background: linear-gradient(90deg, #89b4fa, #cba6f7);
-    color: #1e1e2e;
-    border-radius: 10px;
+    margin: 0 2px;
 }
 
 #workspaces button:hover {
     background: rgba(137, 180, 250, 0.3);
+    border-radius: 8px;
 }
 
-#clock {
-    background: linear-gradient(90deg, #1e1e2e, #313244);
-    color: #cba6f7;
-    padding: 0 20px;
-    border-radius: 12px;
-    border: 1px solid #cba6f7;
-}
-
-#cpu, #memory, #temperature, #pulseaudio, #network, #battery {
-    background: rgba(49, 50, 68, 0.8);
-    color: #cdd6f4;
-    padding: 0 12px;
-    margin: 4px 2px;
-    border-radius: 10px;
-}
-
-#cpu.warning, #memory.warning, #temperature.warning { color: #f9e2af; }
-#cpu.critical, #memory.critical, #temperature.critical { 
-    background: #f38ba8;
+#workspaces button.active {
     color: #1e1e2e;
-    animation: blink 1s infinite alternate;
+    background: #89b4fa;
+    border-radius: 8px;
+    box-shadow: 0 0 12px #89b4fa;
 }
 
-#pulseaudio.muted { color: #f38ba8; }
-
-#battery.charging { color: #94e2d5; }
-#battery.critical:not(.charging) { 
-    background: #f38ba8;
-    color: #1e1e2e;
+#workspaces button.urgent {
+    background: #ff5555;
+    color: white;
 }
 
-#custom-power {
-    background: linear-gradient(135deg, #f38ba8, #eba0ac);
-    color: #1e1e2e;
+/* – Título de ventana */
+#window {
+    font-style: italic;
+    color: #bd93f9;
     padding: 0 16px;
-    margin: 4px 0 4px 4px;
+    margin: 4px 0;
+    background: rgba(189, 147, 249, 0.15);
     border-radius: 0 12px 12px 0;
 }
 
-tooltip {
-    background: #1e1e2e;
-    border: 1px solid #89b4fa;
+/* – Reloj (centro) */
+#clock {
+    color: #ffffff;
+    background: linear-gradient(90deg, rgba(137,180,250,0.3), rgba(0,221,255,0.3));
+    padding: 0 20px;
+    margin: 4px 10px;
     border-radius: 12px;
+    border: 1px solid #00ddff;
+    font-size: 14px;
+    box-shadow: 0 0 15px rgba(0, 221, 255, 0.4);
+}
+
+/* – Módulos de la derecha (todos con el mismo estilo) */
+#custom-updates,
+#custom-disk,
+#custom-temperature,
+#cpu,
+#memory,
+#pulseaudio,
+#network,
+#battery,
+#tray {
+    background: rgba(30, 30, 46, 0.7);
+    color: #cdd6f4;
+    padding: 0 12px;
+    margin: 4px 4px;
+    border-radius: 10px;
+    border: 1px solid rgba(137, 180, 250, 0.3);
+}
+
+/* Colores específicos por módulo */
+#custom-updates.has-updates { color: #ff79c6; }
+#custom-disk            { color: #f1fa8c; }
+#custom-temperature     { color: #50fa7b; }
+#cpu                    { color: #8be9fd; }
+#memory                 { color: #bd93f9; }
+#pulseaudio             { color: #ffb86c; }
+#network                { color: #ff5555; }
+#battery.charging       { color: #50fa7b; }
+
+/* Estados de advertencia y crítico */
+.warning,
+#cpu.warning,
+#memory.warning,
+#custom-temperature.warning,
+#battery.warning {
+    background: rgba(255, 184, 108, 0.3);
+    color: #ffb86c;
+}
+
+.critical,
+#cpu.critical,
+#memory.critical,
+#custom-temperature.critical,
+#battery.critical:not(.charging) {
+    background: rgba(255, 85, 85, 0.4);
+    color: #ff5555;
+    animation: blink 1s infinite alternate;
 }
 
 @keyframes blink {
-    to { background: #f38ba8; }
+    to { background: rgba(255, 85, 85, 0.7); }
+}
+
+/* – Botón de apagado */
+#custom-power {
+    font-size: 16px;
+    color: #ffffff;
+    background: linear-gradient(135deg, #ff5555, #ff79c6);
+    padding: 0 16px;
+    margin: 4px 8px 4px 4px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(255, 85, 85, 0.6);
+}
+
+#custom-power:hover {
+    background: linear-gradient(135deg, #ff79c6, #ff5555);
+}
+
+/* – Tray (iconos del sistema) */
+#tray {
+    margin-right: 8px;
+}
+
+#tray > .passive { -gtk-icon-effect: dim; }
+#tray > .needs-attention { -gtk-icon-effect: highlight; background: #ff5555; }
+
+/* – Tooltips */
+tooltip {
+    background: rgba(10, 12, 28, 0.95);
+    border: 1px solid #89b4fa;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(137, 180, 250, 0.5);
+}
+
+tooltip label {
+    color: #89b4fa;
 }
